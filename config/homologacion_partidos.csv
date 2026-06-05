@@ -1,0 +1,10 @@
+ca_codpar,se_codpar,peso,colectividad,nota
+5,57,1.0,ALIANZA VERDE,Alianza Verde CA → Alianza por Colombia SE
+87,92,1.0,PACTO HISTORICO,Pacto Histórico Boyacá CA → Pacto Histórico Senado
+10,10,1.0,CENTRO DEMOCRATICO,Centro Democrático coincide en ambas corporaciones
+2,2,1.0,PARTIDO LIBERAL,Partido Liberal coincide en ambas corporaciones
+121,3,0.5,CONSERVADOR-SALV NACIONAL,Mitad del arrastre atribuida al Conservador Senado
+121,17,0.5,CONSERVADOR-SALV NACIONAL,Mitad del arrastre atribuida a Salvación Nacional Senado
+122,44,1.0,CR-NUEVO LIBERALISMO,CR-Nuevo Liberalismo CA → Coalición CR-ALMA Senado
+137,44,1.0,ALMA-OXIGENO,ALMA-Oxígeno CA → Coalición CR-ALMA Senado (mismo bloque)
+120,9,1.0,PARTIDO DE LA U,Partido de la U - MIRA CA → Partido de la U Senado

@@ -1,0 +1,9 @@
+pandas==2.2.3
+pyarrow==18.1.0
+numpy==2.2.6
+plotly==6.1.1
+streamlit==1.45.1
+scipy==1.15.3
+statsmodels==0.14.6
+scikit-learn==1.8.0
+openpyxl==3.1.5

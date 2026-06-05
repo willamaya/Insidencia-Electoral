@@ -1,0 +1,9 @@
+colectividad,n_obs,n_municipios,coef_votos_ca,ic_95_low,ic_95_high,p_valor,r2,r2_adj,significativo_5pct,advertencia
+ALIANZA VERDE,15027,123,0.2304,0.2096,0.2512,0.0,0.5314,0.5275,True,"Inferencia ecológica: datos agregados por mesa, NO inferencia individual"
+ALMA-OXIGENO,2862,122,0.0,0.0,0.0,,,,False,"Inferencia ecológica: datos agregados por mesa, NO inferencia individual"
+CENTRO DEMOCRATICO,12319,123,0.2974,0.2593,0.3355,0.0,0.2939,0.2867,True,"Inferencia ecológica: datos agregados por mesa, NO inferencia individual"
+CONSERVADOR-SALV NACIONAL,12970,123,0.1189,0.1061,0.1318,0.0,0.5124,0.5078,True,"Inferencia ecológica: datos agregados por mesa, NO inferencia individual"
+CR-NUEVO LIBERALISMO,10114,123,0.0678,0.0521,0.0835,0.0,0.4977,0.4915,True,"Inferencia ecológica: datos agregados por mesa, NO inferencia individual"
+PARTIDO DE LA U,7982,123,0.0231,0.0142,0.0321,0.0,0.594,0.5877,True,"Inferencia ecológica: datos agregados por mesa, NO inferencia individual"
+PARTIDO LIBERAL,10735,123,0.0808,0.0673,0.0942,0.0,0.521,0.5154,True,"Inferencia ecológica: datos agregados por mesa, NO inferencia individual"
+SIN_HOMOLOGACION,2020,122,0.0701,-0.145,0.2851,0.5229,0.3892,0.3499,False,"Inferencia ecológica: datos agregados por mesa, NO inferencia individual"
