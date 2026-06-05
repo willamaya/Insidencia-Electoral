@@ -20,10 +20,8 @@ from scipy import stats
 from scipy.stats import gaussian_kde
 
 import sqlite3
-from config.settings import DATA_PROC, DATA_INTERIM, OUTPUTS
+from config.settings import DATA_PROC, DATA_INTERIM, OUTPUTS, DB_PATH
 from config.colores_partidos import COLORES, color
-
-DB_PATH = DATA_PROC.parent.parent.parent / "outputs" / "puestos_2026.db"
 
 # Mapeo colectividad CA → codpar SE
 COLEC_TO_SE_CODPAR = {
