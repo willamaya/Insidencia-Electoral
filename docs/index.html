@@ -687,6 +687,8 @@ body {
   </div>
 <!-- PAGE: ARRASTRE → PRESIDENCIA -->
 <div class="page" id="page-presidencia">
+  <div id="_pres_spinner" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+    font-size:14px;color:#888;z-index:999">Cargando Presidencia...</div>
   <div class="main-layout">
     <aside class="filters-panel">
       <div class="filter-section">
@@ -759,6 +761,8 @@ body {
 
 <!-- PAGE: ANÁLISIS TRIPLE -->
 <div class="page" id="page-triple">
+  <div id="_tri_spinner" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+    font-size:14px;color:#888;z-index:999">Cargando Análisis Triple...</div>
   <div class="main-layout">
     <aside class="filters-panel">
       <div class="filter-section">
@@ -829,8 +833,8 @@ body {
 
 <!-- PAGE: METODOLOGÍA -->
 <div class="page" id="page-metodologia">
-  <main class="content" style="width:100%;min-height:calc(100vh - 52px)">
-    <div class="method-layout">
+  <main class="content" style="width:100%;min-height:calc(100vh - 52px);background:#f8f9fa">
+    <div class="method-layout" style="padding:0 8px">
 
       <div class="method-section">
         <h2>Modelo de Arrastre Electoral v3</h2>
@@ -1075,14 +1079,19 @@ function showPage(id) {
     },
   };
   if (renderMap[id]) {
-    try { renderMap[id](); }
-    catch(e) {
-      console.error(`Error en ${id}:`, e);
-      const el = document.querySelector(`#page-${id} .content, #page-${id} main`);
-      if (el) el.innerHTML += `<div style="color:#e05c5c;padding:20px;font-family:monospace;
-        background:rgba(224,92,92,0.1);border-radius:6px;margin:16px">
-        <strong>Error al cargar: ${id}</strong><br>${e.message}</div>`;
-    }
+    // setTimeout(0) garantiza que el DOM pinte el tab antes que Plotly mida dimensiones
+    setTimeout(() => {
+      try { renderMap[id](); }
+      catch(e) {
+        console.error(`Error en ${id}:`, e);
+        const el = document.querySelector(`#page-${id} .content, #page-${id} main`);
+        if (el) el.innerHTML = `<div style="color:#e05c5c;padding:24px 32px;font-family:monospace;
+          background:#fff2f2;border-left:4px solid #e05c5c;border-radius:6px;margin:24px">
+          <strong>Error en tab "${id}"</strong><br><br>${e.message}<br><br>
+          <small style="color:#666">Revisa la consola del navegador (F12) para más detalle.</small>
+          </div>`;
+      }
+    }, 0);
   }
 }
 
@@ -1644,6 +1653,8 @@ function renderArrastreCA() {
 
 
 function renderPresPage() {
+  const _sp = document.getElementById('_pres_spinner');
+  if (_sp) _sp.style.display='none';
   if (!window.Plotly) { console.warn('Plotly no cargado'); return; }
   // ── Filtros: sincronizar con F{} global o usar select propio ─────────────
   const selMuni = document.getElementById('filter-muni-pres');
@@ -1774,6 +1785,8 @@ function renderSankeyTriple_dynamic(muniFilter) {
 
 
 function renderTriple() {
+  const _sp2 = document.getElementById('_tri_spinner');
+  if (_sp2) _sp2.style.display='none';
   if (!window.Plotly) { console.warn('Plotly no cargado'); return; }
   // ── Filtros propios sincronizados con F{} global ──────────────────────────
   const selMuni = document.getElementById('filter-muni-triple');
