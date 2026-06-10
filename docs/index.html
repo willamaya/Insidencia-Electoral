@@ -950,8 +950,8 @@ body {
 const COLORS = {
   verde:     '#007C34',
   cd:        '#1E477D',
-  pacto:     '#8B1A4A',
-  espriella: '#8B0000',
+  pacto:     '#7B2D8B',
+  espriella: '#E07B00',
   liberal:   '#E30716',
   conserv:   '#0867B1',
   cr:        '#F95846',
@@ -1674,6 +1674,12 @@ function renderArrastreCA() {
 }
 
 
+
+// Mapa CA codpar → candidato presidencial (para etiquetas)
+const CA_PRES_NAMES = {
+  '5':'Espriella', '87':'Cepeda', '10':'Valencia',
+  '2':'Cepeda', '121':'Valencia', '122':'Espriella', '120':'Espriella'
+};
 function renderPresPage() {
   // ── Filtros: sincronizar con F{} global o usar select propio ─────────────
   const selMuni = document.getElementById('filter-muni-pres');
@@ -1715,7 +1721,7 @@ function renderPresPage() {
   // ── chart-ratio-pres: ratio CA→PRES dinámico ─────────────────────────────
   if (document.getElementById('chart-ratio-pres') && ratData.length) {
     const byPart = {};
-    ratData.forEach(r=>{ const p=PARTIDOS_CA.find(pt=>pt.cod===r.codpar)||{}; byPart[r.codpar]={ratio:r.ratio,col:p.color||'#888',name:(p.nombre||r.codpar).split(' ')[0],pres_c:r.pres_cand}; });
+    ratData.forEach(r=>{ const p=PARTIDOS_CA.find(pt=>pt.cod===r.codpar)||{}; byPart[r.codpar]={ratio:r.ratio,col:p.color||'#888',name:(p.nombre||r.codpar).split(' ')[0],pres_c:CA_PRES_NAMES[r.codpar]||r.pres_cand||'Pres.'}; });
     const entries = Object.entries(byPart).filter(([,v])=>v.ratio>0).sort((a,b)=>b[1].ratio-a[1].ratio);
     Plotly.react('chart-ratio-pres',[{
       type:'bar', orientation:'h',
