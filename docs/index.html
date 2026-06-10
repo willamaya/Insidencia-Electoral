@@ -135,7 +135,7 @@ body {
 
 /* ── LAYOUT ── */
 .page { display: none; }
-.page.active { display: flex; }
+.page.active { display: flex; width: 100%; min-height: calc(100vh - 52px); }
 
 .main-layout {
   display: grid;
@@ -829,7 +829,7 @@ body {
 
 <!-- PAGE: METODOLOGÍA -->
 <div class="page" id="page-metodologia">
-  <main class="content">
+  <main class="content" style="width:100%;min-height:calc(100vh - 52px)">
     <div class="method-layout">
 
       <div class="method-section">
@@ -1050,22 +1050,39 @@ function plotlyLayout(extra) {
 
 // ── NAVIGATION ───────────────────────────────────────────────────────────────
 function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('page-'+id).classList.add('active');
-  const idx = ['resumen','camara_senado','presidencia','triple','metodologia'].indexOf(id);
-  document.querySelectorAll('.tab-btn')[idx].classList.add('active');
-  if (id === 'resumen')       renderResumen();
-  if (id === 'camara_senado') renderArrastreCA();
-  if (id === 'presidencia') {
-    const sp=document.getElementById('filter-muni-pres');
-    if (sp && F.municipio && !sp.value) sp.value=F.municipio;
-    renderPresPage();
-  }
-  if (id === 'triple') {
-    const st=document.getElementById('filter-muni-triple');
-    if (st && F.municipio && !st.value) st.value=F.municipio;
-    renderTriple();
+  try {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    const pageEl = document.getElementById('page-'+id);
+    if (!pageEl) return;
+    pageEl.classList.add('active');
+    const idx = ['resumen','camara_senado','presidencia','triple','metodologia'].indexOf(id);
+    if (idx >= 0) document.querySelectorAll('.tab-btn')[idx]?.classList.add('active');
+  } catch(e) { console.error('showPage error:', e); }
+
+  const renderMap = {
+    'resumen':       () => renderResumen(),
+    'camara_senado': () => renderArrastreCA(),
+    'presidencia':   () => {
+      const sp=document.getElementById('filter-muni-pres');
+      if (sp && F.municipio && !sp.value) sp.value=F.municipio;
+      renderPresPage();
+    },
+    'triple': () => {
+      const st=document.getElementById('filter-muni-triple');
+      if (st && F.municipio && !st.value) st.value=F.municipio;
+      renderTriple();
+    },
+  };
+  if (renderMap[id]) {
+    try { renderMap[id](); }
+    catch(e) {
+      console.error(`Error en ${id}:`, e);
+      const el = document.querySelector(`#page-${id} .content, #page-${id} main`);
+      if (el) el.innerHTML += `<div style="color:#e05c5c;padding:20px;font-family:monospace;
+        background:rgba(224,92,92,0.1);border-radius:6px;margin:16px">
+        <strong>Error al cargar: ${id}</strong><br>${e.message}</div>`;
+    }
   }
 }
 
@@ -1624,6 +1641,7 @@ function renderArrastreCA() {
 
 
 function renderPresPage() {
+  if (!window.Plotly) { console.warn('Plotly no cargado'); return; }
   // ── Filtros: sincronizar con F{} global o usar select propio ─────────────
   const selMuni = document.getElementById('filter-muni-pres');
   const selDir  = document.getElementById('dir-pres');
@@ -1731,10 +1749,12 @@ function renderPresPage() {
   // ── sankey-triple: actualizar con scope ───────────────────────────────────
   if (document.getElementById('sankey-triple')) {
     // Reutiliza renderSankeyResumen lógica con scope de presidencia
-    const saved_F = {...F};
-    if (muniFilter) { F.municipio=muniFilter; F.puesto=''; F.mesa=''; }
-    renderSankeyTriple_dynamic(muniFilter);
-    Object.assign(F, saved_F);
+    try {
+      const saved_F = {...F};
+      if (muniFilter) { F.municipio=muniFilter; F.puesto=''; F.mesa=''; }
+      renderSankeyTriple_dynamic(muniFilter);
+      Object.assign(F, saved_F);
+    } catch(e) { console.warn('Sankey PRES:', e); }
   }
 }
 
@@ -1751,6 +1771,7 @@ function renderSankeyTriple_dynamic(muniFilter) {
 
 
 function renderTriple() {
+  if (!window.Plotly) { console.warn('Plotly no cargado'); return; }
   // ── Filtros propios sincronizados con F{} global ──────────────────────────
   const selMuni = document.getElementById('filter-muni-triple');
   const selCol  = document.getElementById('filter-colec-triple');
@@ -1905,7 +1926,7 @@ function renderTriple() {
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 // ── ESTADO GLOBAL DE FILTROS ──────────────────────────────────────────────────
-const F = { municipio:'', partido:'', puesto:'', mesa:'' };
+const F = { municipio:'', partido:'', puesto:'', mesa:'', pres_cand:'' };
 
 // ── HELPERS DE FILTRO ─────────────────────────────────────────────────────────
 function getFilteredMuniData() {
