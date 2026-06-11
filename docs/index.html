@@ -728,7 +728,7 @@ body {
     <main class="content">
       <div class="kpi-row" id="kpi-pres"></div>
 
-      <div class="chart-grid">
+      <div class="chart-grid" style="grid-template-columns:3fr 2fr">
         <div class="chart-card">
           <div class="chart-header">
             <div>
@@ -810,7 +810,7 @@ body {
           <div id="interp-radar" style="padding:10px 4px 4px;font-size:12px;color:var(--ink2);line-height:1.5;border-top:1px solid var(--border);margin-top:8px"></div>
       </div>
 
-      <div class="chart-grid">
+      <div class="chart-grid" style="grid-template-columns:3fr 2fr">
         <div class="chart-card">
           <div class="chart-header">
             <div>
@@ -1807,7 +1807,7 @@ function renderPresPage() {
       x:[2.343,2.992,1.910,0.911,0.866],
       marker:{color:[COLORS.pacto,COLORS.verde,COLORS.verde,COLORS.conserv,COLORS.cd], opacity:0.85},
       text:['2.34','2.99','1.91','0.91','0.87'], textposition:'outside',
-    }],plotlyLayout({height:280,margin:{l:150,t:10,b:40,r:60},
+    }],plotlyLayout({height:380, margin:{l:210,t:10,b:40,r:70},
       xaxis:{title:'Votos PRES / Votos CA partido',range:[0,3.5]},
       shapes:[{type:'line',x0:1,x1:1,y0:-0.5,y1:4.5,line:{color:'gray',dash:'dash'}}],
     }),{responsive:true,displayModeBar:false});
@@ -1824,7 +1824,7 @@ function renderPresPage() {
        text:sorted.map(r=>r.pearson.toFixed(3)), textposition:'outside',
        customdata:sorted.map(r=>r.n_mesas),
        hovertemplate:'%{x}<br>ρ=%{y:.3f}<br>n=%{customdata} mesas<extra>CA→PRES</extra>'},
-    ],plotlyLayout({height:280,
+    ],plotlyLayout({height:380,
       yaxis:{title:'Pearson ρ',range:[0,1]},
       xaxis:{tickangle:-15},
     }),{responsive:true,displayModeBar:false});
@@ -1843,12 +1843,15 @@ function renderPresPage() {
       {type:'bar', name:'Espriella', x:top30.map(d=>d.municipio), y:top30.map(d=>d.espriella||0), marker:{color:COLORS.espriella,opacity:0.85}},
       {type:'bar', name:'Cepeda',    x:top30.map(d=>d.municipio), y:top30.map(d=>d.cepeda||0),    marker:{color:COLORS.pacto,opacity:0.85}},
       {type:'bar', name:'Valencia',  x:top30.map(d=>d.municipio), y:top30.map(d=>d.valencia||0),  marker:{color:COLORS.cd,opacity:0.85}},
-    ],plotlyLayout({barmode:'group',height:340,xaxis:{tickangle:-45,tickfont:{size:9}},
+    ],plotlyLayout({barmode:'group',height:420,xaxis:{tickangle:-45,tickfont:{size:8}},
       yaxis:{title:'Votos'},legend:{orientation:'h',y:1.02},
     }),{responsive:true,displayModeBar:false});
   }
 
-    // ── Interpretaciones Presidencia ────────────────────────────────────────
+    // Forzar resize para que Plotly use el ancho correcto del contenedor
+  setTimeout(() => window.dispatchEvent(new Event('resize')), 100);
+
+  // ── Interpretaciones Presidencia ────────────────────────────────────────
   {
     const irp = document.getElementById('interp-ratio-pres');
     const icp = document.getElementById('interp-corr-pres');
@@ -1960,7 +1963,7 @@ function renderTriple() {
       };
     });
     Plotly.react('chart-radar-triple', traces,
-      Object.assign(plotlyLayout({height:360}),{
+      Object.assign(plotlyLayout({height:440}),{
         polar:{bgcolor:'transparent',
           angularaxis:{gridcolor:getGrid(),linecolor:getGrid(),color:getInk2()},
           radialaxis:{gridcolor:getGrid(),linecolor:getGrid(),color:getInk2(),range:[0,1.1]},
@@ -1995,7 +1998,7 @@ function renderTriple() {
       {type:'bar', name:'Ratio PRES/CA', x:lealtad.map(r=>r.nm), y:lealtad.map(r=>r.pres),
        marker:{color:lealtad.map(r=>r.color),opacity:0.5,pattern:{shape:'/'}}, offsetgroup:1,
        text:lealtad.map(r=>r.pres), textposition:'outside'},
-    ],plotlyLayout({barmode:'group',height:300,
+    ],plotlyLayout({barmode:'group',height:380,
       yaxis:{title:'Ratio vs Cámara'},legend:{orientation:'h',y:1.02},
       shapes:[{type:'line',x0:-0.5,x1:4.5,y0:1,y1:1,line:{color:'gray',dash:'dash',width:1}}],
       title:{text:`Lealtad electoral · ${scope}`,font:{size:12,color:getInk2()}},
@@ -2018,7 +2021,7 @@ function renderTriple() {
       textinfo:'value+percent initial',
       marker:{color:[parColor, parColor+'88', parColor+'55']},
       hovertemplate:'%{y}<br>%{x:,} votos<br>%{percentInitial}<extra></extra>',
-    }],plotlyLayout({height:300,margin:{l:180,t:10,b:40},
+    }],plotlyLayout({height:380,margin:{l:200,t:10,b:40},
       title:{text:`Migración de voto · ${parName} · ${scope}`,font:{size:12,color:getInk2()}},
     }),{responsive:true,displayModeBar:false});
   }
@@ -2074,7 +2077,10 @@ function renderTriple() {
           : 'menor a 1, pierde votos al llegar a presidencia.');
     }
   }
-    const it2 = document.getElementById('interp-tabla');
+    // Forzar resize Plotly
+  setTimeout(() => window.dispatchEvent(new Event('resize')), 100);
+
+  const it2 = document.getElementById('interp-tabla');
   if (it2) {
     const best_hlm = [...HLM_DATA].sort((a,b)=>b.beta_hlm-a.beta_hlm)[0]||{};
     const best_icc = [...HLM_DATA].sort((a,b)=>b.icc-a.icc)[0]||{};
