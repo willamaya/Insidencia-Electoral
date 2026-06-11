@@ -519,6 +519,9 @@ body {
             </div>
           </div>
           <div id="chart-ca-cands"></div>
+          <div id="interp-ca" style="padding:10px 4px 4px;font-size:12px;color:var(--ink2);line-height:1.5;border-top:1px solid var(--border);margin-top:8px">
+            Candidatos a Cámara con mayor votación en el ámbito seleccionado. El color indica el partido. Candidatos con más votos concentran mayor dominancia e incidencia potencial sobre el voto al Senado.
+          </div>
         </div>
 
         <div class="chart-card">
@@ -533,6 +536,9 @@ body {
             </div>
           </div>
           <div id="chart-se-cands"></div>
+          <div id="interp-se" style="padding:10px 4px 4px;font-size:12px;color:var(--ink2);line-height:1.5;border-top:1px solid var(--border);margin-top:8px">
+            Candidatos al Senado con votación en el mismo ámbito. Senado es circunscripción nacional — los mismos candidatos compiten en todas las mesas de Boyacá.
+          </div>
         </div>
 
         <div class="chart-card">
@@ -543,24 +549,14 @@ body {
             </div>
           </div>
           <div id="chart-pres-total"></div>
+          <div id="interp-pres" style="padding:10px 4px 4px;font-size:12px;color:var(--ink2);line-height:1.5;border-top:1px solid var(--border);margin-top:8px">
+            Votos presidenciales en el mismo ámbito. Comparar con Cámara y Senado revela el efecto coattail: partidos fuertes en CA/SE pueden arrastrar voto presidencial o perderlo ante candidatos sin equivalente congresional.
+          </div>
         </div>
 
       </div>
 
-<!-- Votos por partido (chart-triple-bar restaurado) -->
-      <div class="chart-card">
-        <div class="chart-header">
-          <div>
-            <div class="chart-title">Votos por partido y corporación</div>
-            <div class="chart-sub">Cámara · Senado · Presidencia</div>
-          </div>
-          <div class="chart-actions">
-            <button class="chart-btn active" onclick="setBarMode('abs')">Absolutos</button>
-            <button class="chart-btn" onclick="setBarMode('pct')">%</button>
-          </div>
-        </div>
-        <div id="chart-triple-bar"></div>
-      </div>
+
 
       <!-- Sankey dinámico trilateral -->
       <div class="chart-card">
@@ -575,6 +571,9 @@ body {
           </div>
         </div>
         <div id="sankey-resumen"></div>
+          <div id="interp-sankey" style="padding:10px 4px 4px;font-size:12px;color:var(--ink2);line-height:1.5;border-top:1px solid var(--border);margin-top:8px">
+            El ancho de cada banda representa el volumen de votos que fluye de un partido en Cámara (izq.) hacia su equivalente en Senado (centro) y hacia el candidato presidencial (der.). Bandas más anchas indican mayor arrastre. Cruces entre partidos revelan voto dividido o migración electoral.
+          </div>
       </div>
 
       <!-- Tabla de municipios -->
@@ -656,6 +655,7 @@ body {
               </div>
             </div>
             <div id="chart-beta-compare"></div>
+          <div id="interp-beta" style="padding:10px 4px 4px;font-size:12px;color:var(--ink2);line-height:1.5;border-top:1px solid var(--border);margin-top:8px"></div>
           </div>
         </div>
 
@@ -680,6 +680,7 @@ body {
               </div>
             </div>
             <div id="corr-bars-case"></div>
+          <div id="interp-corr-case" style="padding:10px 4px 4px;font-size:12px;color:var(--ink2);line-height:1.5;border-top:1px solid var(--border);margin-top:8px"></div>
           </div>
 
         </div>
@@ -694,6 +695,7 @@ body {
           </div>
         </div>
         <div id="sankey-ca-se"></div>
+          <div id="interp-sankey-case" style="padding:10px 4px 4px;font-size:12px;color:var(--ink2);line-height:1.5;border-top:1px solid var(--border);margin-top:8px"></div>
       </div>
 
     </main>
@@ -735,6 +737,7 @@ body {
             </div>
           </div>
           <div id="chart-ratio-pres"></div>
+          <div id="interp-ratio-pres" style="padding:10px 4px 4px;font-size:12px;color:var(--ink2);line-height:1.5;border-top:1px solid var(--border);margin-top:8px"></div>
         </div>
         <div class="chart-card">
           <div class="chart-header">
@@ -744,6 +747,7 @@ body {
             </div>
           </div>
           <div id="chart-corr-pres"></div>
+          <div id="interp-corr-pres" style="padding:10px 4px 4px;font-size:12px;color:var(--ink2);line-height:1.5;border-top:1px solid var(--border);margin-top:8px"></div>
         </div>
       </div>
 
@@ -755,6 +759,7 @@ body {
           </div>
         </div>
         <div id="chart-geo-pres"></div>
+          <div id="interp-geo-pres" style="padding:10px 4px 4px;font-size:12px;color:var(--ink2);line-height:1.5;border-top:1px solid var(--border);margin-top:8px"></div>
       </div>
 
       <!-- Sankey PRES triple -->
@@ -802,6 +807,7 @@ body {
           </div>
         </div>
         <div id="chart-radar-triple"></div>
+          <div id="interp-radar" style="padding:10px 4px 4px;font-size:12px;color:var(--ink2);line-height:1.5;border-top:1px solid var(--border);margin-top:8px"></div>
       </div>
 
       <div class="chart-grid">
@@ -813,6 +819,7 @@ body {
             </div>
           </div>
           <div id="chart-lealtad"></div>
+          <div id="interp-lealtad" style="padding:10px 4px 4px;font-size:12px;color:var(--ink2);line-height:1.5;border-top:1px solid var(--border);margin-top:8px"></div>
         </div>
         <div class="chart-card">
           <div class="chart-header">
@@ -822,6 +829,7 @@ body {
             </div>
           </div>
           <div id="chart-migracion"></div>
+          <div id="interp-migracion" style="padding:10px 4px 4px;font-size:12px;color:var(--ink2);line-height:1.5;border-top:1px solid var(--border);margin-top:8px"></div>
         </div>
       </div>
 
@@ -835,6 +843,7 @@ body {
         </div>
         <div class="data-table-wrap">
           <table class="data-table" id="tabla-metricas"></table>
+          <div id="interp-tabla" style="padding:10px 4px 4px;font-size:12px;color:var(--ink2);line-height:1.5;border-top:1px solid var(--border);margin-top:8px"></div>
         </div>
       </div>
     </main>
@@ -1616,6 +1625,45 @@ function renderArrastreCA() {
     }
   }
 
+  // ── Interpretaciones CA→SE ──────────────────────────────────────────────
+  const ib = document.getElementById('interp-beta');
+  const icc = document.getElementById('interp-corr-case');
+  const isc = document.getElementById('interp-sankey-case');
+  if (ib) {
+    const scope_case = muniFilter || 'Boyacá';
+    const model_txt = model==='prob' ? 'Bootstrap' : model==='stat' ? 'HLM' : 'Determinístico';
+    const hlm_entry = HLM_DATA.find(d=>d.col.includes(colFilter==='all'?'Alianza':
+      {verde:'Alianza',pacto:'Pacto',cd:'Centro',liberal:'Liberal',conserv:'Conservador',cr:'CR'}[colFilter]||''));
+    const beta_val = muniFilter && corr.length
+      ? corr.sort((a,b)=>b.ratio-a.ratio)[0]?.ratio?.toFixed(3)
+      : (hlm_entry ? `β HLM=${hlm_entry.beta_hlm}` : '—');
+    const icc_val = hlm_entry ? (hlm_entry.icc*100).toFixed(0)+'%' : '';
+    ib.innerHTML = `<b>${scope_case}</b> · Modelo ${model_txt}. `
+      + (muniFilter && corr.length
+        ? `Ratio arrastre SE/CA: <b>${beta_val}</b>. `
+          + `El municipio explica ${icc_val ? icc_val+' de la varianza (ICC)' : 'parte de la varianza'}.`
+        : `β HLM Boyacá: los partidos con β>1 generan más votos al Senado que los que recibieron en Cámara.`)
+      + (muniFilter && corr.length && corr.some(r=>r.pearson>0.8)
+        ? ' Correlación muy alta: fuerte coherencia electoral en este municipio.'
+        : '');
+  }
+  if (icc) {
+    const top_corr = corr.length ? [...corr].sort((a,b)=>b.pearson-a.pearson)[0] : null;
+    const bot_corr = corr.length>1 ? [...corr].sort((a,b)=>a.pearson-b.pearson)[0] : null;
+    const scope_case2 = muniFilter || 'Boyacá';
+    icc.innerHTML = top_corr
+      ? `<b>${scope_case2}</b> · Correlación más alta: <b>${PARTIDOS_CA.find(p=>p.cod===top_corr.ca_codpar)?.nombre.split(' ')[0]||top_corr.ca_codpar} ρ=${top_corr.pearson.toFixed(3)}</b>`
+        + (bot_corr && bot_corr.pearson < 0.5 ? ` · Menor coherencia: ${PARTIDOS_CA.find(p=>p.cod===bot_corr.ca_codpar)?.nombre.split(' ')[0]||bot_corr.ca_codpar} ρ=${bot_corr.pearson.toFixed(3)}.` : '.')
+        + ' Pearson alto indica que mesas fuertes en CA también son fuertes en SE.'
+      : 'Selecciona un municipio para ver las correlaciones reales por partido.';
+  }
+  if (isc) {
+    const scope_sank = muniFilter || 'Boyacá';
+    isc.innerHTML = `<b>${scope_sank}</b> · Flujo CA→SE. `
+      + 'Bandas anchas = alto arrastre entre Cámara y Senado. '
+      + (muniFilter ? 'Los flujos muestran los partidos activos en este municipio.' : 'Escala proporcional a votos totales de Boyacá.');
+  }
+
   // ── Sankey CA→SE dinámico ────────────────────────────────────────────────
   if (document.getElementById('sankey-ca-se')) {
     const filtered = muniFilter
@@ -1674,6 +1722,21 @@ function renderArrastreCA() {
 }
 
 
+
+
+// Helper: primer nombre + primer apellido + partido
+function _fmt(name, party_short, codpar) {
+  const p = (name||'').split(' ');
+  // Nombres colombianos: NOMBRE1 [NOMBRE2] APELLIDO1 [APELLIDO2]
+  const firstName = p[0] || '';
+  const lastName  = p.length >= 4 ? p[2] : (p[1] || '');
+  // Obtener nombre completo del partido desde PARTIDOS_CA
+  const fullParty = PARTIDOS_CA.find(pt=>pt.cod===codpar)?.nombre
+    || party_short || '';
+  // Abreviar partido (máx 3 palabras significativas)
+  const partyShort = fullParty.split(' ').filter(w=>w.length>2).slice(0,2).join(' ');
+  return `<b>${firstName} ${lastName}</b> <span style="font-size:10px;opacity:0.7">(${partyShort})</span>`;
+}
 
 // Mapa CA codpar → candidato presidencial (para etiquetas)
 const CA_PRES_NAMES = {
@@ -1785,6 +1848,31 @@ function renderPresPage() {
     }),{responsive:true,displayModeBar:false});
   }
 
+    // ── Interpretaciones Presidencia ────────────────────────────────────────
+  {
+    const irp = document.getElementById('interp-ratio-pres');
+    const icp = document.getElementById('interp-corr-pres');
+    const igp = document.getElementById('interp-geo-pres');
+    if (irp) {
+      const top_ratio = ratData.filter(r=>r.ratio>0).sort((a,b)=>b.ratio-a.ratio)[0];
+      irp.innerHTML = top_ratio
+        ? `El mayor arrastre CA→PRES en <b>${scope}</b>: <b>${PARTIDOS_CA.find(p=>p.cod===top_ratio.codpar)?.nombre.split(' ')[0]||top_ratio.codpar}</b> ratio=<b>${top_ratio.ratio.toFixed(2)}</b>. `
+          + (top_ratio.ratio>2 ? 'Ratio>2: arrastra más del doble en presidencia vs lo obtenido en CA.' : 'Arrastre moderado.')
+        : 'Selecciona un municipio para ver el ratio CA→Presidencia.';
+    }
+    if (icp && corrData.length) {
+      const top_cp = [...corrData].sort((a,b)=>b.pearson-a.pearson)[0];
+      icp.innerHTML = `Correlación más alta en <b>${scope}</b>: `
+        + `<b>${PARTIDOS_CA.find(p=>p.cod===top_cp.ca_codpar)?.nombre.split(' ')[0]||top_cp.ca_codpar} ρ=${top_cp.pearson.toFixed(3)}</b>. `
+        + (top_cp.pearson>0.7 ? 'Alta coherencia: mesas fuertes en CA aportan al candidato presidencial equivalente.'
+          : 'Correlación moderada: hay arrastre pero también voto dividido.');
+    }
+    if (igp) {
+      const n_esp = PRES_DYNAMIC.top_muni_pres.filter(m=>m.espriella>m.cepeda).length;
+      igp.innerHTML = `Distribución presidencial top-30 municipios. <b>Espriella</b> dominó en ${n_esp} de ${PRES_DYNAMIC.top_muni_pres.length}. `
+        + '<b>Cepeda</b> gana en capitales (Tunja, Nobsa). La brecha urbano-rural define el resultado departamental.';
+    }
+  }
   // ── sankey-triple: actualizar con scope ───────────────────────────────────
   if (document.getElementById('sankey-triple')) {
     // Reutiliza renderSankeyResumen lógica con scope de presidencia
@@ -1959,6 +2047,42 @@ function renderTriple() {
     </tr>`;
   }).join('');
   tabEl.innerHTML = thead + `<tbody>${tbody}</tbody>`;
+  // ── Interpretaciones Triple (al final, después de variables definidas) ──────
+  {
+    const p_obj_t = PARTIDOS_CA.find(pt=>pt.cod===codpar)||{};
+    const ir2 = document.getElementById('interp-radar');
+    const il2 = document.getElementById('interp-lealtad');
+    const im2 = document.getElementById('interp-migracion');
+    if (ir2) {
+      ir2.innerHTML = `Radar normalizado para <b>${p_obj_t.nombre?.split(' ')[0]||colKey}</b> · <b>${scope}</b>. `
+        + 'Ejes: Ratio SE/CA, Ratio PRES/CA, Pearson CA-SE, Pearson CA-PRES e ICC. '
+        + 'Figura más grande = mayor cohesión trilateral entre corporaciones.';
+    }
+    if (il2) {
+      il2.innerHTML = `<b>${p_obj_t.nombre?.split(' ')[0]||colKey}</b> · <b>${scope}</b>: `
+        + `CA→SE=<b>${muniRatioSE.toFixed(2)}</b> · CA→PRES=<b>${muniRatioPRES.toFixed(2)}</b>. `
+        + (muniRatioSE>1&&muniRatioPRES>1 ? 'Arrastre positivo neto en ambas corporaciones.'
+          : muniRatioSE>1 ? 'Fuerte arrastre a Senado, moderado hacia presidencia.'
+          : 'Contracción: el partido pierde votos al escalar a corporaciones superiores.');
+    }
+    if (im2) {
+      const presC_t = {5:'Espriella',87:'Cepeda',10:'Valencia',2:'Cepeda',121:'Valencia',122:'Espriella'}[codpar]||'?';
+      im2.innerHTML = `Migración de voto <b>${p_obj_t.nombre?.split(' ')[0]||colKey}</b>→<b>${presC_t}</b> · <b>${scope}</b>. `
+        + `Ratio ${muniRatioPRES.toFixed(2)}: `
+        + (muniRatioPRES>3 ? 'muy alto, concentra apoyo presidencial muy por encima de su base congresional.'
+          : muniRatioPRES>1 ? 'positivo, genera más votos presidenciales que congresionales.'
+          : 'menor a 1, pierde votos al llegar a presidencia.');
+    }
+  }
+    const it2 = document.getElementById('interp-tabla');
+  if (it2) {
+    const best_hlm = [...HLM_DATA].sort((a,b)=>b.beta_hlm-a.beta_hlm)[0]||{};
+    const best_icc = [...HLM_DATA].sort((a,b)=>b.icc-a.icc)[0]||{};
+    it2.innerHTML = `Modelo HLM (pendiente aleatoria por municipio) vs OLS (efectos fijos). `
+      + `Mayor β HLM: <b>${best_hlm.col?.split(' ')[0]||''} β=${best_hlm.beta_hlm}</b>. `
+      + `Mayor ICC: <b>${best_icc.col?.split(' ')[0]||''} ${(best_icc.icc*100).toFixed(0)}%</b> de la varianza explicada por municipio. `
+      + `Ratio Bootstrap>2 indica que los IC del OLS estaban subestimados.`;
+  }
 }
 
 
@@ -2122,6 +2246,99 @@ async function applyFilters() {
 
   // ── Actualizar mapa ────────────────────────────────────────────────────────
   await refreshMapMarkersFiltered(presData);
+
+  // ── Interpretaciones profundas dinámicas ─────────────────────────────────
+  const scope_label = F.mesa ? `Mesa ${F.mesa} · ${(F.puesto||'').substring(0,20)}` :
+                      F.puesto ? F.puesto.substring(0,28) :
+                      F.municipio || 'Boyacá';
+  const el_ca   = document.getElementById('interp-ca');
+  const el_se   = document.getElementById('interp-se');
+  const el_pres = document.getElementById('interp-pres');
+
+  // Datos CA del municipio para comparativa departamental
+  const muniUP = (F.municipio||'').toUpperCase();
+  const muniKey_ca = Object.keys(CANDS_BY_MUNI.ca).find(k=>k.toUpperCase()===muniUP);
+  const puestoKey_i = (F.municipio&&F.puesto) ? `${F.municipio}|${F.puesto}` : null;
+  const ca_list = puestoKey_i ? (CANDS_BY_PUESTO.ca_puesto[puestoKey_i]||[])
+                               : (muniKey_ca ? CANDS_BY_MUNI.ca[muniKey_ca]||[] : CANDS_BY_MUNI.ca_global);
+  const se_list = puestoKey_i ? (CANDS_BY_PUESTO.se_puesto[puestoKey_i]||[])
+                               : (muniKey_ca ? CANDS_BY_MUNI.se[muniKey_ca]||[] : CANDS_BY_MUNI.se_global);
+
+  // Pearson CA↔SE del municipio
+  const pearson_muni = muniUP
+    ? (CASE_DYNAMIC.corr_muni.find(r=>r.municipio===F.municipio) || {}).pearson
+    : null;
+  // Ratio arrastre CA del municipio (Verde como referencia)
+  const ratio_muni = muniUP
+    ? (PRES_DYNAMIC.corr_ca_pres.find(r=>r.municipio===F.municipio) || {}).ratio
+    : null;
+
+  // Líder CA
+  const ca_top = ca_list[0] || {};
+  const ca_top2 = ca_list[1] || {};
+  const ca_total_v = ca_list.reduce((s,r)=>s+r.v,0)||1;
+  const ca_pct = ca_top.v ? (ca_top.v/ca_total_v*100).toFixed(0) : null;
+
+  // Líder SE
+  const se_top = se_list[0] || {};
+  const se_total_v = se_list.reduce((s,r)=>s+r.v,0)||1;
+  const se_pct = se_top.v ? (se_top.v/se_total_v*100).toFixed(0) : null;
+
+  // Presidencia
+  const pres_winner_name = aggPres.espriella>=aggPres.cepeda ? 'Espriella' : 'Cepeda';
+  const pres_runner_name = aggPres.espriella>=aggPres.cepeda ? 'Cepeda' : 'Espriella';
+  const pres_winner_v = Math.max(aggPres.espriella,aggPres.cepeda);
+  const pres_runner_v = Math.min(aggPres.espriella,aggPres.cepeda);
+  const pres_winner_pct = ((pres_winner_v/(aggPres.total||1))*100).toFixed(1);
+  const pres_runner_pct = ((pres_runner_v/(aggPres.total||1))*100).toFixed(1);
+
+  // ¿El partido líder en CA tiene equivalente presidencial?
+  const ca_top_cod = ca_top.c||'';
+  const CA_PRES_MAP2 = {'5':'Espriella','87':'Cepeda','10':'Valencia','2':'Cepeda','121':'Valencia','122':'Espriella','120':'Espriella'};
+  const ca_top_pres = CA_PRES_MAP2[ca_top_cod]||null;
+  const ca_pres_match = ca_top_pres && ca_top_pres === pres_winner_name;
+
+  // Boyacá global para comparativa
+  const bca_top = CANDS_BY_MUNI.ca_global[0]||{};
+  const diff_from_dept = ca_top.n && bca_top.n && ca_top.n !== bca_top.n;
+
+  if (el_ca && ca_top.n) {
+    const anom = diff_from_dept && F.municipio
+      ? ` Difiere del patrón departamental (líder Boyacá: <b>${bca_top.n.split(' ').slice(-1)[0]}</b>).`
+      : '';
+    el_ca.innerHTML =
+      `${_fmt(ca_top.n, ca_top.p, ca_top.c)} lidera con <b>${ca_top.v||''} votos (${ca_pct}%)</b>`
+      + (ca_top2.n ? `, seguido de ${_fmt(ca_top2.n, ca_top2.p, ca_top2.c)} (${ca_top2.v})` : '')
+      + `.${anom}`
+      + (pearson_muni ? ` Pearson CA↔SE en este municipio: <b>ρ=${pearson_muni.toFixed(2)}</b>.` : '');
+  } else if (el_ca) {
+    el_ca.innerHTML = 'Candidatos a Cámara por votos en este ámbito. El líder tiene mayor dominancia e incidencia sobre el voto al Senado.';
+  }
+
+  if (el_se && se_top.n) {
+    const se_ca_match = se_top.p && ca_top.p && se_top.p.split(' ')[0] === ca_top.p.split(' ')[0];
+    el_se.innerHTML =
+      `${_fmt(se_top.n, se_top.p, se_top.c)} lidera el Senado con <b>${se_top.v||''} votos (${se_pct}%)</b>.`
+      + (se_ca_match
+        ? ` Mismo partido que lidera CA — <em>arrastre cohesionado</em>.`
+        : ` Partido diferente al líder de CA — posible <em>voto dividido</em> entre corporaciones.`);
+  } else if (el_se) {
+    el_se.innerHTML = 'Candidatos al Senado (circunscripción nacional) con votos en este ámbito. Comparar con CA revela coherencia o voto dividido.';
+  }
+
+  if (el_pres) {
+    const coattail = ca_pres_match
+      ? `Arrastre <em>coherente</em>: el partido líder en CA (${ca_top.p||''}) coincide con el ganador presidencial.`
+      : ca_top_pres
+        ? `<em>Voto dividido</em>: el partido líder en CA apunta a ${ca_top_pres} en presidencia, pero ganó ${pres_winner_name}.`
+        : `El partido líder en CA no tiene candidato presidencial directo.`;
+    el_pres.innerHTML =
+      `<b>${pres_winner_name} gana con ${pres_winner_pct}%</b> (${pres_winner_v.toLocaleString('es-CO')} votos)`
+      + ` · ${pres_runner_name}: ${pres_runner_pct}%`
+      + (aggPres.valencia>0 ? ` · Valencia: ${((aggPres.valencia/(aggPres.total||1))*100).toFixed(1)}%` : '')
+      + `. ${coattail}`
+      + (ratio_muni ? ` Ratio arrastre CA→PRES: <b>${ratio_muni.toFixed(2)}</b>.` : '');
+  }
 
   // ── Actualizar tabla ───────────────────────────────────────────────────────
   if (F.municipio && presData) {
@@ -2829,6 +3046,16 @@ function renderSankeyResumen() {
     if (F.mesa)      parts.push(`Mesa ${F.mesa}`);
     sub.textContent = (parts.length ? parts.join(' · ') : 'Boyacá')
       + ' — Arrastre trilateral';
+  }
+  // Actualizar interpretación dinámica
+  const el_sk = document.getElementById('interp-sankey');
+  if (el_sk && d.labels && d.labels.length) {
+    const scope_sk = F.municipio ? (F.puesto ? F.puesto.substring(0,25) : F.municipio) : 'Boyacá';
+    const n_links = d.src ? d.src.length : 0;
+    el_sk.innerHTML = `<b>${scope_sk}</b> · Flujo CA → SE → Presidencia (${n_links} conexiones activas)<br>
+      El ancho de cada banda = volumen de votos que fluye entre corporaciones.
+      <em>Bandas anchas</em> = fuerte arrastre electoral entre el partido en CA, su lista en SE y su candidato presidencial.
+      <em>Cruces</em> entre colores revelan migración: votantes que apoyaron un partido en CA pero otro en presidencia.`;
   }
 
   Plotly.react('sankey-resumen', [{
